@@ -61,6 +61,12 @@ router.post("/send-verification", verifyRequest, async (req, res) => {
   try {
     const { email, name, token } = req.body;
 
+    //  console.log("Incoming email request:", {
+    //   email,
+    //   name,
+    //   hasToken: !!token,
+    // });
+
     if (!email || !token) {
       return res.status(400).json({
         status: "error",
@@ -70,7 +76,7 @@ router.post("/send-verification", verifyRequest, async (req, res) => {
 
     const signupUrl = `${process.env.FRONTEND_URL}/complete-signup?token=${encodeURIComponent(token)}`;
 
-    await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: `"Chatz" <${process.env.SMTP_USER}>`,
       to: email,
       subject: "Complete your Chatz signup",
@@ -183,6 +189,13 @@ router.post("/send-verification", verifyRequest, async (req, res) => {
     </div>
   `,
     });
+    
+    //  console.log("Email delivery result:", {
+    //   messageId: info.messageId,
+    //   accepted: info.accepted,
+    //   rejected: info.rejected,
+    //   response: info.response,
+    // });
 
     return res.status(200).json({
       status: "success",
@@ -198,9 +211,16 @@ router.post("/send-verification", verifyRequest, async (req, res) => {
   }
 });
 
+
+
+
+
+
+
 router.post("/send-password-reset", verifyRequest, async (req, res) => {
   try {
     const { email, name, token } = req.body;
+    // console.log(req.body)
 
     if (!email || !token) {
       return res.status(400).json({
@@ -251,6 +271,7 @@ router.post("/send-password-reset", verifyRequest, async (req, res) => {
       `,
     });
 
+    // console.log("sent password reset email to:", email);
     return res.status(200).json({
       status: "success",
       message: "Password reset email sent",
