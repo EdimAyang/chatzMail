@@ -107,7 +107,7 @@ router.post("/send-verification", verifyRequest, async (req, res) => {
         "
       >
         <img
-          src="https://chattzz.netlify.app/android-chrome-192x192.png"
+          src=${process.env.LOGO_URL}
           alt="Chatz"
           width="64"
           height="64"
@@ -278,7 +278,7 @@ router.post("/send-password-reset", verifyRequest, async (req, res) => {
         "
       >
         <img
-          src="https://chattzz.netlify.app/android-chrome-192x192.png"
+          src=${process.env.LOGO_URL}
           alt="Chatz"
           width="64"
           height="64"
