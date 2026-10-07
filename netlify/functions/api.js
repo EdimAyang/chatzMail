@@ -150,6 +150,8 @@ router.post("/send-verification", verifyRequest, async (req, res) => {
         email address and continue creating your Chatz account.
       </p>
 
+      
+
       <div style="margin: 30px 0;">
         <a
           href="${signupUrl}"
@@ -167,6 +169,25 @@ router.post("/send-verification", verifyRequest, async (req, res) => {
           Complete Your Signup
         </a>
       </div>
+
+
+      <p
+  style="
+    color: #777777;
+    font-size: 14px;
+    line-height: 1.6;
+    background: #f8f8f8;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 20px 0;
+  "
+>
+  <strong style="color: #555555;">
+    Can't find the email?
+  </strong>
+  Please check your Spam or Junk folder. If you find it there,
+  mark it as "Not spam" so you don't miss future Chatz emails.
+</p>
 
       <p
         style="
@@ -329,6 +350,24 @@ router.post("/send-password-reset", verifyRequest, async (req, res) => {
       >
         Click the button below to create a new password.
       </p>
+
+      <p
+  style="
+    color: #777777;
+    font-size: 14px;
+    line-height: 1.6;
+    background: #f8f8f8;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 20px 0;
+  "
+>
+  <strong style="color: #555555;">
+    Can't find the email?
+  </strong>
+  Please check your Spam or Junk folder. If you find it there,
+  mark it as "Not spam" so you don't miss future Chatz emails.
+</p>
 
       <div style="margin: 30px 0;">
         <a
